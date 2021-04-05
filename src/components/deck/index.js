@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./style.css";
-import {DeckContext} from "./utils/DeckContext";
+import DeckContext from "../../utils/DeckContext";
 
-function deck() {
+function Deck() {
+  const {deck, hand, discard} = useContext(DeckContext);
   return (
-    <div />
+    <div>
+      Cards Left in Deck: {deck.length}
+    </div>
   );
 }
-deck.contextType = DeckContext;
+Deck.contextType = DeckContext;
 
 
-export default deck;
+export default Deck;

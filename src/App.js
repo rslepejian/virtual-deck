@@ -1,8 +1,10 @@
+import {useState} from "react";
 import './App.css';
-import {DeckContext} from "utils/DeckContext";
+import DeckContext from "./utils/DeckContext";
+import Deck from "./components/deck";
 
 function App() {
-  const [Deck, setDeck] = useState({
+  const [DeckState, setDeck] = useState({
     deck: [
           "h1", "h2", "h3", "h4", "h5", "h6", "h7", "h8", "h9", "h10", "h11", "h12", "h13",
           "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13",
@@ -12,9 +14,10 @@ function App() {
     hand: [],
     discard: []  
   });
+  
   return (
-    <DeckContext.Provider value={Deck}>
-      
+    <DeckContext.Provider value={DeckState}>
+      <Deck />
     </DeckContext.Provider>
   );
 }
